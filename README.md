@@ -32,3 +32,8 @@
     - Multiple Child Widgets - Có nhiều widget con
   - Ứng dụng sử dụng một số widget như: Scaffold, AppBar, Text, Padding, ListView, ListTile, Container, BoxDecoration, DecorationImage, AssetImage
   ![img.png](imgs/lesson7.png)
+- Lesson 8: Gesture trong Flutter
+  - Một số cử chỉ phổ biến như: Tap, Double Tap, Drag, Flick, Pinch, Spread, Panning
+  - Flutter cung cấp widget GestureDetector hỗ trợ xử lý các sự kiện dễ dàng
+  - Ngoài ra, Flutter cũng cung cấp cơ chế xử lý sự kiện ở cấp thấp sử dụng Listener widget
+  - Ứng dụng áp dụng GestureDetector để xử lý sự kiện hiện dialog khi bấm vào ảnh

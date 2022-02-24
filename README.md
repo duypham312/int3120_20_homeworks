@@ -46,3 +46,10 @@
   - Widget được kế thừa từ StatefulWidget để duy trì trạng thái và quản lý các trạng thái của nó
   - Ứng dụng sử dụng StatefulWidget để làm RatingBox
   ![img.png](imgs/lesson10.png)
+- Lesson 11: ScopedModel trong Flutter
+  - Flutter có package scoped_model hỗ trợ việc quản lý trạng thái ứng dụng. Package này cung cấp 3 class chính
+    - Model: Model đóng gói trạng thái của một ứng dụng. Model có một phương thức duy nhất là notifyListeners, notifyListeners sẽ thực hiện các công việc cần thiết để cập nhật giao diện.
+    - ScopedModel: Đây là widget giúp chuyển Data Model từ widget cha xuống các widget con đồng thời rebuild các widget con giữ các model khi các model được cập nhật
+    - ScopedModelDescendant: Đây là widget lấy Data model từ lớp cha và build UI khi Data model thay đổi
+  - Ứng dụng sử dụng scoped_model để thay cho StatefulWidget
+  ![img.png](imgs/lesson11.png)

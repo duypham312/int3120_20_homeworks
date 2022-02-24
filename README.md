@@ -30,4 +30,5 @@
   - Chia làm 2 loại chính dựa trên số widget con
     - Single Child Widgets - Chỉ có một widget con
     - Multiple Child Widgets - Có nhiều widget con
-  - 
+  - Ứng dụng sử dụng một số widget như: Scaffold, AppBar, Text, Padding, ListView, ListTile, Container, BoxDecoration, DecorationImage, AssetImage
+  ![img.png](imgs/lesson7.png)

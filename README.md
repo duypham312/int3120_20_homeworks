@@ -42,3 +42,7 @@
   - Có thể chia làm 2 loại dựa trên thời gian tồn tại của state
     - Ephemeral (ngắn hạn): kéo dài trong thời gian ngắn, Flutter hỗ trợ quản lý state loại này thông qua StatefulWidget
     - App state (trạng thái ứng dụng): kéo dài trong toàn bộ app, Flutter hỗ trợ quản lý state loại này thông qua scoped_model
+- Lesson 10: StatefulWidget trong Flutter
+  - Widget được kế thừa từ StatefulWidget để duy trì trạng thái và quản lý các trạng thái của nó
+  - Ứng dụng sử dụng StatefulWidget để làm RatingBox
+  ![img.png](imgs/lesson10.png)

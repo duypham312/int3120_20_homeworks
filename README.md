@@ -37,3 +37,4 @@
   - Flutter cung cấp widget GestureDetector hỗ trợ xử lý các sự kiện dễ dàng
   - Ngoài ra, Flutter cũng cung cấp cơ chế xử lý sự kiện ở cấp thấp sử dụng Listener widget
   - Ứng dụng áp dụng GestureDetector để xử lý sự kiện hiện dialog khi bấm vào ảnh
+  ![img.png](imgs/lesson8.png)

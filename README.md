@@ -38,3 +38,7 @@
   - Ngoài ra, Flutter cũng cung cấp cơ chế xử lý sự kiện ở cấp thấp sử dụng Listener widget
   - Ứng dụng áp dụng GestureDetector để xử lý sự kiện hiện dialog khi bấm vào ảnh
   ![img.png](imgs/lesson8.png)
+- Lesson 9: Giới thiệu sơ bộ về quản lý State trong Flutter
+  - Có thể chia làm 2 loại dựa trên thời gian tồn tại của state
+    - Ephemeral (ngắn hạn): kéo dài trong thời gian ngắn, Flutter hỗ trợ quản lý state loại này thông qua StatefulWidget
+    - App state (trạng thái ứng dụng): kéo dài trong toàn bộ app, Flutter hỗ trợ quản lý state loại này thông qua scoped_model

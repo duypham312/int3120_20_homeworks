@@ -80,3 +80,13 @@
   - Demo:
   ![img.png](imgs/lesson15-1.png)
   ![img.png](imgs/lesson15-2.png)
+- Lesson 16: Giới thiệu về package
+  - Dart Package là một thư viện hay mô hình đơn giản có thể chia sẻ. Về cơ bản, Dart Package tương tự Dart Application, tuy nhiên nó không truy cập vào các điểm chính của ứng dụng
+  - Các kiểu package:
+    - Dart package: có thể sử dụng trên nhiều môi trường
+    - Flutter package: phụ thuộc vào Flutter framework, có thể chỉ sử dụng trong môi trường mobile
+    - Flutter plugin: phụ thuộc vào Flutter framework và cả nền tảng (iOS SDK hay Android SDK)
+  - Demo:
+  ![img.png](imgs/lesson16-1.png)
+  ![img.png](imgs/lesson16-2.png)
+  ![img.png](imgs/lesson16-3.png)

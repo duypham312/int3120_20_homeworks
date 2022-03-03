@@ -90,3 +90,17 @@
   ![img.png](imgs/lesson16-1.png)
   ![img.png](imgs/lesson16-2.png)
   ![img.png](imgs/lesson16-3.png)
+- Lesson 17; REST API
+  - Flutter cung cấp package http, http là một thư viện Future-based sử dụng await và async. Nó cung cấp phương thức cấp cao và đơn giản để phát triển REST
+    - Lớp http cung cấp chức năng để làm việc với tất cả các kiểu dữ liệu HTTP được request
+    - Phương thức http có sử dụng url, và bổ sung thông tin thông qua Dart Map
+  - Một vài phương thức chính :
+    - read: gửi yêu cầu sử dụng phương thức GET và trả về Future<String>
+    - get: gửi yêu cầu sử dụng phương thức GET và trả về Future<Response>. Response là lớp giữ lại các thông tin phản hồi
+    - post: gửi yêu cầu sử dụng phương thức POST, đưa giá trị lên sever và phản hồi Future<Response>
+    - put: gửi yêu cầu sử dụng phương thức PUT và trả về phản hồi Future<Response>
+    - head: gửi yêu cầu sử dụng phương thức HEAD và trả về phản hồi Future<Response>
+    - delete: gửi yêu cầu sử dụng phương thức DELETE và trả về phản hồi Future<Response> 
+  - Demo:
+  ![img.png](imgs/lesson17-1.png)
+  ![img.png](imgs/lesson17-2.png)

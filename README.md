@@ -104,3 +104,11 @@
   - Demo:
   ![img.png](imgs/lesson17-1.png)
   ![img.png](imgs/lesson17-2.png)
+- Lesson 18: Database
+  - Flutter hỗ trợ 1 vài gói để làm việc với cơ sở dữ liệu (database), ví dụ như: sqflite (SQLlite database), firebase_database (NoSQL database từ Google)
+    - SQLite: là một SQL tiêu chuẩn dựa trên công cụ cơ sở dữ liệu nhúng. Gói sqflite cung cấp nhiều chức năng để làm việc hiệu quả với SQLite database. Gói sqflite có các chức năng chính như:
+      - Tạo/mở SQLite database
+      - Thực thi SQL statement
+      - Phương thức truy vấn nâng cao
+    - Demo:
+    ![img.png](imgs/lesson18-1.png)

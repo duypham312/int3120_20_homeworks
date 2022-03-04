@@ -1,19 +1,23 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:lesson18/db.dart';
 import 'package:scoped_model/scoped_model.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
-void main() {
+Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
-  runApp(MyApp(
-    items: SQLiteDbProvider.db.getItems(),
-  ));
+  await Firebase.initializeApp();
+
+  runApp(const MyApp());
+}
+
+Stream<QuerySnapshot> fetchItems() {
+  return FirebaseFirestore.instance.collection('item').snapshots();
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key, required this.items}) : super(key: key);
-
-  final Future<List<Item>> items;
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -22,52 +26,125 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: FutureBuilder<List<Item>>(
-          future: items,
-          builder: (context, snapshot) {
-            return snapshot.hasData
-                ? MyHomePage(
-                    title: 'Lesson 17',
-                    items: snapshot.data!,
-                  )
-                : const Center(child: CircularProgressIndicator());
-          }),
+      home: const MyHomePage(
+        title: 'Lesson 18',
+      ),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title, required this.items})
-      : super(key: key);
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
 
   final String title;
-
-  final List<Item> items;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String dataSource = '';
+
+  @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance?.addPostFrameCallback((timeStamp) async {
+      await showDialog(
+          context: context,
+          builder: (context) {
+            return SimpleDialog(
+                title: const Text('Please select data source'),
+                children: [
+                  SimpleDialogOption(
+                    onPressed: () {
+                      Navigator.maybePop(context);
+                      setState(() {
+                        dataSource = 'SQLite';
+                      });
+                    },
+                    child: const Text('SQLite DB'),
+                  ),
+                  SimpleDialogOption(
+                    onPressed: () {
+                      Navigator.maybePop(context);
+                      setState(() {
+                        dataSource = 'Firestore';
+                      });
+                    },
+                    child: const Text('Firestore'),
+                  ),
+                ]);
+          });
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: Padding(
-        padding: const EdgeInsets.only(top: 10),
-        child: ListView.builder(
-          itemCount: widget.items.length,
-          itemBuilder: (context, index) {
-            final item = widget.items[index];
-            return ItemBox(
-              item: Item(item.id, item.title, item.desc, item.coverUrl, 0),
-            );
-          },
-        ),
-      ),
+      body: dataSource == 'SQLite'
+          ? FutureBuilder<List<Item>>(
+              future: SQLiteDbProvider.db.getItems(),
+              builder: (context, snapshot) {
+                return snapshot.hasData
+                    ? Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: ListView.builder(
+                          itemCount: snapshot.data!.length,
+                          itemBuilder: (context, index) {
+                            final item = snapshot.data![index];
+                            return ItemBox(
+                              item: Item(
+                                  item.id,
+                                  item.title,
+                                  '${item.desc}. Source: $dataSource',
+                                  item.coverUrl,
+                                  0),
+                            );
+                          },
+                        ))
+                    : const Center(child: CircularProgressIndicator());
+              })
+          : (dataSource == 'Firestore')
+              ? (StreamBuilder<QuerySnapshot>(
+                  stream: fetchItems(),
+                  builder: (context, snapshot) {
+                    if (snapshot.hasData) {
+                      final data = snapshot.data!.docs;
+
+                      List<Item> items = [];
+
+                      for (var element in data) {
+                        items.add(Item.fromMap(
+                            element.data() as Map<dynamic, dynamic>));
+                      }
+
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 10),
+                        child: ListView.builder(
+                          itemCount: items.length,
+                          itemBuilder: (context, index) {
+                            final item = items[index];
+                            return ItemBox(
+                              item: Item(
+                                  index,
+                                  item.title,
+                                  '${item.desc}. Source: $dataSource',
+                                  item.coverUrl,
+                                  0),
+                            );
+                          },
+                        ),
+                      );
+                    } else {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  },
+                ))
+              : const Center(child: CircularProgressIndicator()),
     );
   }
 }

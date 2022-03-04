@@ -94,14 +94,14 @@
   - Flutter cung cấp package http, http là một thư viện Future-based sử dụng await và async. Nó cung cấp phương thức cấp cao và đơn giản để phát triển REST
     - Lớp http cung cấp chức năng để làm việc với tất cả các kiểu dữ liệu HTTP được request
     - Phương thức http có sử dụng url, và bổ sung thông tin thông qua Dart Map
-  - Một vài phương thức chính :
+  - Một vài phương thức chính:
     - read: gửi yêu cầu sử dụng phương thức GET và trả về Future<String>
     - get: gửi yêu cầu sử dụng phương thức GET và trả về Future<Response>. Response là lớp giữ lại các thông tin phản hồi
     - post: gửi yêu cầu sử dụng phương thức POST, đưa giá trị lên sever và phản hồi Future<Response>
     - put: gửi yêu cầu sử dụng phương thức PUT và trả về phản hồi Future<Response>
     - head: gửi yêu cầu sử dụng phương thức HEAD và trả về phản hồi Future<Response>
     - delete: gửi yêu cầu sử dụng phương thức DELETE và trả về phản hồi Future<Response> 
-  - Demo:
+  - Demo (yêu cầu chạy http server tại thư mục JSONWebServer và thay địa chỉ tại dòng 23 tệp main.dart):
   ![img.png](imgs/lesson17-1.png)
   ![img.png](imgs/lesson17-2.png)
 - Lesson 18: Database
@@ -110,5 +110,24 @@
       - Tạo/mở SQLite database
       - Thực thi SQL statement
       - Phương thức truy vấn nâng cao
-    - Demo:
+    - Demo SQLite:
     ![img.png](imgs/lesson18-1.png)
+    ![img.png](imgs/lesson18-3.png)
+    - Cloud Firestore: Firebase là nền tảng phát triển ứng dụng Baas(Backend-as-a-Service), cung cấp nhiều tính năng để hỗ trợ việc phát triển ứng dụng như xác thực, lưu trữ đám mây,... Trong đó có thể kể đến Cloud Firestore dựa trên NoSQL database với thời gian thực
+    - Demo Firestore:
+      - Yêu cầu tự thiết lập firebase project theo từng bước sau đây:
+        - Mở [Firebase](https://firebase.google.com)
+        - Tạo một tài khoản Firebase và tạo Project
+        - Các bạn làm theo hướng dẫn chi tiết trong video này nhé: [Hướng dẫn](https://www.youtube.com/watch?v=6juww5Lmvgo)
+        - Lưu ý: hãy nhớ cần kết nối project với firebase nhé
+        - Đi đến Firebase console
+        - Mở project mình vừa tạo
+        - Nhấn vào tính năng Database trong menu bên trái
+        - Tạo database
+        - Nhấn Start trong test mode và Enable
+        - Click Add collection. 
+        ![img.png](imgs/lesson18-2.png)
+      - Ứng dụng:
+      ![img.png](imgs/lesson18-1.png)
+      ![img.png](imgs/lesson18-4.png)
+

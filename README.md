@@ -164,3 +164,17 @@
     - findsNWidgets: Xác minh N widget tìm thấy
   - Demo:
   ![img.png](imgs/lesson20.png)
+- Lesson 21: Xuất ứng dụng trong Flutter
+  - Android:
+    - Thay đổi tên ứng dụng bằng cách truy cập vào lệnh android:label trong file /android/app/src/main/AndroidManifest.xml
+    - Thay đổi icon của ứng dụng bằng android:icon trong file manifest
+    - Lệnh xuất file .apk: `flutter build apk`
+    - Lệnh cài file APK trực tiếp trên thiết bị di động: `flutter install`
+  - iOS:
+    - Cập nhật tên Display trong phần cài đặt project của Xcode để đặt tên ứng dụng
+    - Cập nhật Bundle Identifier trong cài đặt của project Xcode để đặt  bundle id
+    - Thêm icon mới
+    - Lệnh xuất cho iOS: `flutter build ios`
+  - Demo:
+  ![img.png](imgs/lesson21-1.png)
+  ![img.png](imgs/lesson21-2.png)

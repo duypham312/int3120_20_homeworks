@@ -140,6 +140,9 @@
       - isSupported: Chấp nhận một biến kiểu Locale và kiểm tra locale đó có được hỗ trợ không
       - load: Chấp nhận ngôn ngữ được chọn và tải dữ liệu tương ứng ngôn ngữ đó
       - shouldReload: Liệu có nên tải lại khi widget Localizations được rebuild
-  - Demo:
+  - Demo (Manual - flutter_localizations - the first Lesson 19 commit):
   ![img.png](imgs/lesson19-1.png)
   ![img.png](imgs/lesson19-2.png)
+  - Demo (intl - the second Lesson 19 commit):
+  ![img.png](imgs/lesson19-3.png)
+  ![img.png](imgs/lesson19-4.png)

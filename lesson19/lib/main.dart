@@ -1,6 +1,8 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:intl/intl.dart';
+
+import 'generated/intl/messages_all.dart';
 
 void main() {
   runApp(const MyApp());
@@ -20,6 +22,7 @@ class MyApp extends StatelessWidget {
         CustomLocalizationsDelegate(),
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate
       ],
       supportedLocales: const [
         Locale('en', ''),
@@ -44,11 +47,11 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(CustomLocalizations.of(context)!.title!),
+        title: Text(CustomLocalizations.of(context)!.title),
       ),
       body: Center(
         child: Text(
-          CustomLocalizations.of(context)!.message!,
+          CustomLocalizations.of(context)!.message,
           style: Theme.of(context).textTheme.headline5,
         ),
       ),
@@ -57,28 +60,35 @@ class _MyHomePageState extends State<MyHomePage> {
 }
 
 class CustomLocalizations {
-  CustomLocalizations(this.locale);
+  static Future<CustomLocalizations> load(Locale locale) {
+    final String name =
+        locale.countryCode!.isEmpty ? locale.languageCode : locale.toString();
+    final String localeName = Intl.canonicalizedLocale(name);
 
-  final Locale locale;
+    return initializeMessages(localeName).then((_) {
+      Intl.defaultLocale = localeName;
+      return CustomLocalizations();
+    });
+  }
 
   static CustomLocalizations? of(BuildContext context) {
     return Localizations.of<CustomLocalizations>(context, CustomLocalizations);
   }
 
-  static final Map<String, Map<String, String>> _resources = {
-    'en': {'title': 'Lesson 19', 'message': 'Hello World'},
-    'vi': {
-      'title': 'Bài 19',
-      'message': 'Xin chào thế giới',
-    },
-  };
-
-  String? get title {
-    return _resources[locale.languageCode]!['title'];
+  String get title {
+    return Intl.message(
+      'Lesson 19',
+      name: 'title',
+      desc: 'Title for the Lesson19 application',
+    );
   }
 
-  String? get message {
-    return _resources[locale.languageCode]!['message'];
+  String get message {
+    return Intl.message(
+      'Hello World',
+      name: 'message',
+      desc: 'Message for the Lesson19 application',
+    );
   }
 }
 
@@ -91,7 +101,7 @@ class CustomLocalizationsDelegate
 
   @override
   Future<CustomLocalizations> load(Locale locale) {
-    return SynchronousFuture<CustomLocalizations>(CustomLocalizations(locale));
+    return CustomLocalizations.load(locale);
   }
 
   @override

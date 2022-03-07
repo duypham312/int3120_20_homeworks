@@ -143,6 +143,24 @@
   - Demo (Manual - flutter_localizations - the first Lesson 19 commit):
   ![img.png](imgs/lesson19-1.png)
   ![img.png](imgs/lesson19-2.png)
-  - Demo (intl - the second Lesson 19 commit):
+  - Demo (intl - the second and third Lesson 19 commit):
   ![img.png](imgs/lesson19-3.png)
   ![img.png](imgs/lesson19-4.png)
+- Lesson 20: Kiểm thử
+  - Dart và Flutter cung cấp gói mở rộng để hỗ trợ trong việc kiểm thử tự động của ứng dụng
+  - Thông thường, có 3 loại kiểm thử:
+    - Unit Testing: phương pháp testing đơn giản nhất, dựa trên việc đảm bảo độ chính xác của một đoạn code. Hoạt động không thực sự hiệu quả trên môi trường thật
+    - Widget Testing: dựa trên việc đảm bảo độ chính xác trong việc tạo, render hay tương tác của widget với widget khác như mong đợi. Nó hoạt động từng bước và cung cấp gần như thời gian thực trong việc tìm lỗi
+    - Integration Testing: bao gồm cả hai unit testing và widget testing cùng với các thành phần bên ngoài ứng dụng như database, web service,.. Nó mô phỏng hoặc giả lập môi trường thực để tìm ra gần như tất cả các lỗi.
+  - Flutter cung cấp phương thức testWidgets để kiểm thử các widget. Nó chấp nhận 2 tham số: test decription và test code
+  - Flutter framework cung cấp nhiều tính năng để tìm đến widget render trong môi trường testing và gọi chung là Finders.Chúng ta hầu như thường xuyên sử dụng sử dụng finders là find.text, find.byKey và find.byWidget 
+    - find.text: để tìm widget mà chứa đoạn text cụ thể
+    - find.byKey: để tìm widget chứa các key cụ thể
+    - find.byWidget: để tìm wiget theo biến thể của nó
+  - Flutter framework cung cấp nhiều tính năng để phù hợp widget với widget dự kiến và gọi là Matchers. Một vài điều quan trọng về matchers:
+    - findsOneWidget: Xác minh widget duy nhất được tìm thấy 
+    - findsNothing: Xác minh không wiget nào được tìm thấy 
+    - findsWidgets: Xác minh nhiều hơn một wiget được tìm thấy 
+    - findsNWidgets: Xác minh N widget tìm thấy
+  - Demo:
+  ![img.png](imgs/lesson20.png)

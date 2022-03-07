@@ -106,28 +106,40 @@
   ![img.png](imgs/lesson17-2.png)
 - Lesson 18: Database
   - Flutter hỗ trợ 1 vài gói để làm việc với cơ sở dữ liệu (database), ví dụ như: sqflite (SQLlite database), firebase_database (NoSQL database từ Google)
-    - SQLite: là một SQL tiêu chuẩn dựa trên công cụ cơ sở dữ liệu nhúng. Gói sqflite cung cấp nhiều chức năng để làm việc hiệu quả với SQLite database. Gói sqflite có các chức năng chính như:
-      - Tạo/mở SQLite database
-      - Thực thi SQL statement
-      - Phương thức truy vấn nâng cao
-    - Demo SQLite:
+  - SQLite: là một SQL tiêu chuẩn dựa trên công cụ cơ sở dữ liệu nhúng. Gói sqflite cung cấp nhiều chức năng để làm việc hiệu quả với SQLite database. Gói sqflite có các chức năng chính như:
+    - Tạo/mở SQLite database
+    - Thực thi SQL statement
+    - Phương thức truy vấn nâng cao
+  - Demo SQLite:
+  ![img.png](imgs/lesson18-1.png)
+  ![img.png](imgs/lesson18-3.png)
+  - Cloud Firestore: Firebase là nền tảng phát triển ứng dụng Baas(Backend-as-a-Service), cung cấp nhiều tính năng để hỗ trợ việc phát triển ứng dụng như xác thực, lưu trữ đám mây,... Trong đó có thể kể đến Cloud Firestore dựa trên NoSQL database với thời gian thực
+  - Demo Firestore:
+    - Yêu cầu tự thiết lập firebase project theo từng bước sau đây:
+      - Mở [Firebase](https://firebase.google.com)
+      - Tạo một tài khoản Firebase và tạo Project
+      - Các bạn làm theo hướng dẫn chi tiết trong video này nhé: [Hướng dẫn](https://www.youtube.com/watch?v=6juww5Lmvgo)
+      - Lưu ý: hãy nhớ cần kết nối project với firebase nhé
+      - Đi đến Firebase console
+      - Mở project mình vừa tạo
+      - Nhấn vào tính năng Database trong menu bên trái
+      - Tạo database
+      - Nhấn Start trong test mode và Enable
+      - Click Add collection. 
+      ![img.png](imgs/lesson18-2.png)
+    - Ứng dụng:
     ![img.png](imgs/lesson18-1.png)
-    ![img.png](imgs/lesson18-3.png)
-    - Cloud Firestore: Firebase là nền tảng phát triển ứng dụng Baas(Backend-as-a-Service), cung cấp nhiều tính năng để hỗ trợ việc phát triển ứng dụng như xác thực, lưu trữ đám mây,... Trong đó có thể kể đến Cloud Firestore dựa trên NoSQL database với thời gian thực
-    - Demo Firestore:
-      - Yêu cầu tự thiết lập firebase project theo từng bước sau đây:
-        - Mở [Firebase](https://firebase.google.com)
-        - Tạo một tài khoản Firebase và tạo Project
-        - Các bạn làm theo hướng dẫn chi tiết trong video này nhé: [Hướng dẫn](https://www.youtube.com/watch?v=6juww5Lmvgo)
-        - Lưu ý: hãy nhớ cần kết nối project với firebase nhé
-        - Đi đến Firebase console
-        - Mở project mình vừa tạo
-        - Nhấn vào tính năng Database trong menu bên trái
-        - Tạo database
-        - Nhấn Start trong test mode và Enable
-        - Click Add collection. 
-        ![img.png](imgs/lesson18-2.png)
-      - Ứng dụng:
-      ![img.png](imgs/lesson18-1.png)
-      ![img.png](imgs/lesson18-4.png)
-
+    ![img.png](imgs/lesson18-4.png)
+### Tuần 3:
+- Lesson 19: Chuyển đổi ngôn ngữ
+  - Hiện nay, các ứng dụng có thể được sử dụng từ nhiều nơi trên thế giới, vì thế các ứng dụng phải hiển thị nội dung phù hợp với ngôn ngữ của quốc gia đó
+  - Flutter hỗ trợ ứng dụng làm việc với đa ngôn ngữ (Internationalizing). Trong đó, có thể kể đến 3 lớp localization:
+    - Locale: lớp được sử dụng để nhận diện ngôn ngữ người sử dụng
+    - Localizations: widget chung được sử dụng để set Locale và nguồn localized của lớp con
+    - LocalizationsDelegate<T>: lớp factory thông qua widget Localizations được tải. Nó có 3 phương thức overridable như sau:
+      - isSupported: Chấp nhận một biến kiểu Locale và kiểm tra locale đó có được hỗ trợ không
+      - load: Chấp nhận ngôn ngữ được chọn và tải dữ liệu tương ứng ngôn ngữ đó
+      - shouldReload: Liệu có nên tải lại khi widget Localizations được rebuild
+  - Demo:
+  ![img.png](imgs/lesson19-1.png)
+  ![img.png](imgs/lesson19-2.png)

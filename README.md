@@ -178,3 +178,14 @@
   - Demo:
   ![img.png](imgs/lesson21-1.png)
   ![img.png](imgs/lesson21-2.png)
+- Lesson 22: Công cụ phát triển
+  - Dart DevTools: là bộ lập trình dựa trên web. Nó hỗ trợ cả hai nền tảng là Android và iOS
+  ![img.png](imgs/lesson22-1.png)
+  - Flutter SDK: 
+    - Để cập nhật Flutter SDK, ta sử dụng lệnh sau: `flutter upgrade`
+    ![img.png](imgs/lesson22-2.png)
+    - Để cập nhật các package trong flutter, ta dùng lệnh sau: `flutter pub upgrade`
+    ![img.png](imgs/lesson22-3.png)
+  - Flutter Inspector:
+    - Có thể mở bằng lệnh sau: `flutter run --track-widget-creation`
+    ![img.png](imgs/lesson22-4.png)

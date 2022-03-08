@@ -186,6 +186,9 @@
     ![img.png](imgs/lesson22-2.png)
     - Để cập nhật các package trong flutter, ta dùng lệnh sau: `flutter pub upgrade`
     ![img.png](imgs/lesson22-3.png)
-  - Flutter Inspector:
-    - Có thể mở bằng lệnh sau: `flutter run --track-widget-creation`
+  - Flutter Inspector: Có thể mở bằng lệnh `flutter run --track-widget-creation`
     ![img.png](imgs/lesson22-4.png)
+- Lesson 23: Ứng dụng hoàn chỉnh
+  ![img.png](imgs/lesson23-1.png)
+  ![img.png](imgs/lesson23-2.png)
+  ![img.png](imgs/lesson23-3.png)
